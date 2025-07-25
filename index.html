@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotel Management System</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #181c24 !important;
+      color: #f4f4f4;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin: 32px 0 30px 0;
+    }
+    .nav-btn {
+      background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 26px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,123,255,0.12);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      text-decoration: none;
+      outline: none;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+    .nav-btn:hover, .nav-btn:focus {
+      background: linear-gradient(90deg, #0056b3 0%, #007bff 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px rgba(0,123,255,0.18);
+      text-decoration: none;
+    }
+    .container {
+      background: #232a36 !important;
+      color: #f4f4f4;
+    }
+    .booking-card {
+      background: #232a36 !important;
+      color: #f4f4f4;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    }
+    .booking-card h2,
+    .logo-circle,
+    .logo span {
+      color: #fff !important;
+    }
+    label, input, select {
+      color: #f4f4f4 !important;
+      background: #232a36 !important;
+    }
+    input, select {
+      border: 1px solid #444 !important;
+    }
+    input:focus, select:focus {
+      border: 1.5px solid #007bff !important;
+      background: #232a36 !important;
+      color: #fff !important;
+    }
+    button, .booking-card button {
+      background: linear-gradient(90deg, #007bff 0%, #0056b3 100%) !important;
+      color: #fff !important;
+    }
+    button:hover, .booking-card button:hover {
+      background: linear-gradient(90deg, #0056b3 0%, #007bff 100%) !important;
+    }
+    .admin-link {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      .top-nav {
+        flex-direction: column;
+        gap: 10px;
+        margin: 18px 0 18px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-nav">
+    <a href="admin_login.php" class="nav-btn">Admin Login</a>
+    <a href="user_login.php" class="nav-btn">User Login</a>
+    <a href="user_register.php" class="nav-btn">Create Account</a>
+    <a href="user_bookings.php" class="nav-btn">View My Bookings</a>
+  </div>
+  <div class="container">
+    <div class="logo">
+      <div class="logo-circle">🏨</div>
+      <span style="font-size:1.6rem;font-weight:600;color:#fff;">Hotel Ease</span>
+    </div>
+    <div class="booking-card">
+      <h2>Book a Room</h2>
+      <form id="bookingForm" action="data.php" method="POST">
+        <label for="guestName">Guest Name:</label>
+        <input type="text" id="guestName" name="guestName" required />
+
+        <label for="roomType">Room Type:</label>
+        <select id="roomType" name="roomType" required>
+          <option value="">Select a room</option>
+          <option value="Single">Single</option>
+          <option value="Double">Double</option>
+          <option value="Suite">Suite</option>
+        </select>
+
+        <label for="checkIn">Check-in Date:</label>
+        <input type="date" id="checkIn" name="checkIn" required />
+
+        <label for="checkOut">Check-out Date:</label>
+        <input type="date" id="checkOut" name="checkOut" required />
+
+        <button type="submit">Book Room</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
